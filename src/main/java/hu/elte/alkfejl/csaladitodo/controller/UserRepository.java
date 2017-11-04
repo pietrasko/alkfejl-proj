@@ -1,7 +1,6 @@
 package hu.elte.alkfejl.csaladitodo.controller;
 
 import hu.elte.alkfejl.csaladitodo.model.User;
-import java.io.Serializable;
 import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 

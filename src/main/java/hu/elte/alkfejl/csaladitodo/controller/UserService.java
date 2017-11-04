@@ -14,18 +14,18 @@ public class UserService {
     private UserRepository userRepository;
     
     public User register(User user) {
-        user.setRole(User.Role.USER);
-        return this.user = userRepository.save(user);
+        return userRepository.save(user);
     }
     
-    public User login(User user) throws UserNotValidException {
-        if(isValid(user)) {
-            return this.user = userRepository.findByUsername(user.getUsername());
+    public boolean login(User user) {
+        if (isValid(user)) {
+            return true;
         }
-        throw new UserNotValidException();
+        
+        return false;
     }
     
-    private boolean isValid(User user) {
+    public boolean isValid(User user) {
         return userRepository.findByUsernameAndPassword(
                 user.getUsername(), user.getPassword())
                 .isPresent();
