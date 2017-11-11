@@ -1,5 +1,6 @@
 package hu.elte.alkfejl.csaladitodo.controller;
 
+import hu.elte.alkfejl.csaladitodo.service.UserService;
 import hu.elte.alkfejl.csaladitodo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
