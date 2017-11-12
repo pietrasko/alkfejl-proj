@@ -31,7 +31,7 @@ public class Admin {
     private int id;
     
     @Column(nullable = false, unique = true)
-    private String name;
+    private String username;
     
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, unique = true)
