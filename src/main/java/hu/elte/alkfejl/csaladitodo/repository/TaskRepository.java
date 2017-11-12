@@ -9,7 +9,6 @@ import hu.elte.alkfejl.csaladitodo.model.Admin;
 import hu.elte.alkfejl.csaladitodo.model.Task;
 import hu.elte.alkfejl.csaladitodo.model.User;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -17,6 +16,6 @@ import org.springframework.data.repository.CrudRepository;
  * @author GenQP
  */
 public interface TaskRepository extends CrudRepository<Task, Integer>{
-    List<Task> findByAdmin(Admin admin);
-    List<Task> findByUser(User user);
+    Iterable<Task> findAllByAdmin(Admin admin);
+    Iterable<Task> findAllByUser(User user);
 }

@@ -34,7 +34,7 @@ public class Admin {
     private String username;
     
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private Role role;
     
     @Column(nullable = false)
@@ -45,6 +45,14 @@ public class Admin {
     
     public int getId() {
         return id;
+    }
+    
+    public String getUsername(){
+        return username;
+    }
+    
+    public Role getRole(){
+        return role;
     }
 
     public void setId(int id) {

@@ -46,4 +46,36 @@ public class Task {
     
     @Column(nullable = false)
     private Timestamp deadline;
+    
+    public void setUser(User user){
+        this.user = user;
+    }
+    
+    public void setCompletion(boolean isComplete){
+        completed = isComplete;
+    }
+    
+    public void setConfirmed(boolean isConfirmed){
+        completion_confirmed = isConfirmed;
+    }
+    
+    public void setTask(String task){
+        task_description = task;
+    }
+    
+    public void setDeadline(Timestamp time){
+        deadline = time;
+    }
+    
+    public boolean isComplete(){
+        return completed;
+    }
+    
+    public boolean isConfirmed(){
+        return completion_confirmed;
+    }
+    
+    public int getId(){
+        return id;
+    }
 }

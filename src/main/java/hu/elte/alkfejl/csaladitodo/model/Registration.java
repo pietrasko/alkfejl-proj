@@ -29,7 +29,7 @@ public class Registration {
     @Column(nullable = false)
     private String name;
     
-    @Column(nullable = false)
+    @Column(nullable = false, length = 11)
     private String code;
 
     public int getId() {

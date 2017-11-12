@@ -7,9 +7,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/api/user")
@@ -26,6 +28,7 @@ public class UserController {
         return ResponseEntity.badRequest().build();
     }
     
+    
     @GetMapping("/register")
     public String showRegister(User user) {
        return "register"; 
@@ -41,14 +44,16 @@ public class UserController {
        return "login"; 
     }
     
-//    @PostMapping("/login")
-        public String login(Model model, User user) {
-           if(userService.login(user)) {
-               return "redirect:/";
-           }
-           model.addAttribute("error", true);
-           return "login";
+    @PostMapping("/login")
+    public String login(@ModelAttribute User user, Model model) {
+        if (userService.isValid(user)) {
+            
+            return "redirect:/api/user/register";
         }
+        model.addAttribute("loginFailed", true);
+        return "login";
+    }
+
     
 //    @PostMapping("/logout")
 //    public ResponseEntity<User> logout(@RequestBody User user) {
