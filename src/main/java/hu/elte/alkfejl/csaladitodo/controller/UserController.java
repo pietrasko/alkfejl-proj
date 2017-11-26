@@ -5,13 +5,10 @@ import hu.elte.alkfejl.csaladitodo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/api/user")
@@ -23,15 +20,10 @@ public class UserController {
     @GetMapping("")
     public ResponseEntity<User> user() {
         if (userService.isLoggedIn()) {
-            return ResponseEntity.ok(userService.getLoggedInUser());
+            return ResponseEntity.ok(
+                    userService.getLoggedInUser());
         }
         return ResponseEntity.badRequest().build();
-    }
-    
-    
-    @GetMapping("/register")
-    public String showRegister(User user) {
-       return "register"; 
     }
     
     @PostMapping("/register")
@@ -39,25 +31,19 @@ public class UserController {
         return userService.register(user);
     }
     
-    @GetMapping("/login")
-    public String showLogin(User user) {
-       return "login"; 
-    }
-    
     @PostMapping("/login")
-    public String login(@ModelAttribute User user, Model model) {
-        if (userService.isValid(user)) {
-            
-            return "redirect:/api/user/register";
+    public ResponseEntity<User> login(@RequestBody User user) {
+        try {
+            return ResponseEntity.ok(userService.login(user));
         }
-        model.addAttribute("loginFailed", true);
-        return "login";
+        catch (UserNotValidException e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
-
     
-//    @PostMapping("/logout")
-//    public ResponseEntity<User> logout(@RequestBody User user) {
-//        userService.logout();
-//        return ResponseEntity.ok().build();
-//    }
+    @PostMapping("/logout")
+    public ResponseEntity<User> logout(@RequestBody User user) {
+        userService.logout();
+        return ResponseEntity.ok().build();
+    }
 }

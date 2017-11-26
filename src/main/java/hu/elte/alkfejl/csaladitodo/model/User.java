@@ -4,9 +4,7 @@ import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
-
 import utils.Role;
 
 @Entity
@@ -51,5 +49,4 @@ public class User {
     public int getId(){
         return this.id;
     }
-     
 }

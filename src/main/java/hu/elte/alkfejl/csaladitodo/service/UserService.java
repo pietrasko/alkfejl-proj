@@ -1,5 +1,6 @@
 package hu.elte.alkfejl.csaladitodo.service;
 
+import hu.elte.alkfejl.csaladitodo.controller.UserNotValidException;
 import hu.elte.alkfejl.csaladitodo.repository.UserRepository;
 import hu.elte.alkfejl.csaladitodo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,21 +18,21 @@ public class UserService {
     
     public User register(User user) {
         user.setRole(Role.USER);
-        return userRepository.save(user);
+        return this.user = userRepository.save(user);
     }
     
-    public boolean login(User user) {
+    public User login(User user) throws UserNotValidException {
         if (isValid(user)) {
-            return true;
+            return this.user = userRepository.findByUsername(user.getUsername()).get();
         }
-        
-        return false;
+        throw new UserNotValidException();
     }
     
-    public boolean isValid(User user) {
-        return userRepository.findByUsernameAndPassword(
-                user.getUsername(), user.getPassword())
-                .isPresent();
+    private boolean isValid(User user) {
+        return 
+            userRepository.findByUsernameAndPassword(
+                    user.getUsername(), user.getPassword())
+            .isPresent();
     }
     
     public boolean isLoggedIn() {

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hu.elte.alkfejl.csaladitodo.service;
 
 /**
@@ -10,13 +5,12 @@ package hu.elte.alkfejl.csaladitodo.service;
  * @author GenQP
  */
 
+import hu.elte.alkfejl.csaladitodo.controller.UserNotValidException;
 import hu.elte.alkfejl.csaladitodo.model.Admin;
-import hu.elte.alkfejl.csaladitodo.model.User;
 import hu.elte.alkfejl.csaladitodo.repository.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
-import utils.Role;
 
 @Service
 @SessionScope
@@ -24,23 +18,17 @@ public class AdminService {
     private Admin admin;
     
     @Autowired
-    private AdminRepository adminRepo;
+    private AdminRepository adminRepository;
     
-    public Admin register(Admin admin){
-        admin.setRole(Role.ADMIN);
-        return adminRepo.save(admin);
-    }
-    
-    public boolean login(Admin user) {
-        if (isValid(user)) {
-            return true;
+    public Admin login(Admin admin) throws UserNotValidException {
+        if (isValid(admin)) {
+            return this.admin = adminRepository.findByUsername(admin.getUsername()).get();
         }
-        
-        return false;
+        throw new UserNotValidException();
     }
     
     public boolean isValid(Admin user) {
-        return adminRepo.findByUsernameAndPassword(
+        return adminRepository.findByUsernameAndPassword(
                 user.getUsername(), user.getPassword())
                 .isPresent();
     }
