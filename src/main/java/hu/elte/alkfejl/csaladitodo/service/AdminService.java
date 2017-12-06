@@ -1,11 +1,6 @@
 package hu.elte.alkfejl.csaladitodo.service;
 
-/**
- *
- * @author GenQP
- */
-
-import hu.elte.alkfejl.csaladitodo.controller.UserNotValidException;
+import hu.elte.alkfejl.csaladitodo.controller.AdminNotValidException;
 import hu.elte.alkfejl.csaladitodo.model.Admin;
 import hu.elte.alkfejl.csaladitodo.repository.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +15,11 @@ public class AdminService {
     @Autowired
     private AdminRepository adminRepository;
     
-    public Admin login(Admin admin) throws UserNotValidException {
+    public Admin login(Admin admin) throws AdminNotValidException {
         if (isValid(admin)) {
             return this.admin = adminRepository.findByUsername(admin.getUsername()).get();
         }
-        throw new UserNotValidException();
+        throw new AdminNotValidException();
     }
     
     public boolean isValid(Admin user) {

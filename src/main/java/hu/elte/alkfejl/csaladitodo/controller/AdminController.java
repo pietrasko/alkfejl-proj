@@ -1,7 +1,6 @@
 package hu.elte.alkfejl.csaladitodo.controller;
 
 import hu.elte.alkfejl.csaladitodo.model.Admin;
-import hu.elte.alkfejl.csaladitodo.model.User;
 import hu.elte.alkfejl.csaladitodo.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +30,7 @@ public class AdminController {
     }
     
     @PostMapping("/login")
-    public ResponseEntity<Admin> login(@RequestBody Admin admin) {
+    public ResponseEntity<Admin> login(@RequestBody Admin admin) throws AdminNotValidException {
         return ResponseEntity.ok(adminService.login(admin));
     }
     

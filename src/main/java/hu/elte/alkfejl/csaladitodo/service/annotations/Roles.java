@@ -12,5 +12,5 @@ import utils.Role;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface Roles {
-    Role[] value() default {Role.GUEST};
+    Role[] value() default {Role.USER};
 }
