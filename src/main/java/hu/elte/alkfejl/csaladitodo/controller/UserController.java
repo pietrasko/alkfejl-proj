@@ -17,7 +17,7 @@ public class UserController {
     @Autowired
     private UserService userService;
     
-    @GetMapping("")
+    @GetMapping
     public ResponseEntity<User> user() {
         if (userService.isLoggedIn()) {
             return ResponseEntity.ok(
