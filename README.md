@@ -45,8 +45,9 @@ A projekt célja egy családi feladat beosztás segítésére használható webe
 
 ### Végpontok
 
-##Megvalósítás
-Fejlesztőkörnyezet
+#Megvalósítás
+
+##Fejlesztőkörnyezet
 
 Felhasznált eszközök
 
