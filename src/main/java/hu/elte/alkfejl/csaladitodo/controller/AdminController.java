@@ -30,12 +30,7 @@ public class AdminController {
     }
     
     @PostMapping("/login")
-<<<<<<< Updated upstream
     public ResponseEntity<Admin> login(@RequestBody Admin admin) throws AdminNotValidException {
-=======
-    public ResponseEntity<Admin> login(@RequestBody Admin admin)
-            throws UserNotValidException {
->>>>>>> Stashed changes
         return ResponseEntity.ok(adminService.login(admin));
     }
     
