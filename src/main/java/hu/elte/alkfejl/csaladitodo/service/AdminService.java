@@ -1,6 +1,6 @@
 package hu.elte.alkfejl.csaladitodo.service;
 
-import hu.elte.alkfejl.csaladitodo.controller.AdminNotValidException;
+import hu.elte.alkfejl.csaladitodo.exception.AdminNotValidException;
 import hu.elte.alkfejl.csaladitodo.model.Admin;
 import hu.elte.alkfejl.csaladitodo.repository.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +24,7 @@ public class AdminService {
     
     public boolean isValid(Admin user) {
         return adminRepository.findByUsernameAndPassword(
-                user.getUsername(), user.getPassword())
-                .isPresent();
+                user.getUsername(), user.getPassword()).isPresent();
     }
     
     public boolean isLoggedIn() {
@@ -38,5 +37,9 @@ public class AdminService {
     
     public void logout() {
         admin = null;
+    }
+    
+    public Admin getAdminByUsername(String username) {
+        return adminRepository.findByUsername(username).get();
     }
 }

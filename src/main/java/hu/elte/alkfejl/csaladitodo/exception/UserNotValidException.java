@@ -1,4 +1,4 @@
-package hu.elte.alkfejl.csaladitodo.controller;
+package hu.elte.alkfejl.csaladitodo.exception;
 
 public class UserNotValidException extends Exception {
     

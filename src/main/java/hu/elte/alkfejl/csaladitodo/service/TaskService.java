@@ -35,11 +35,19 @@ public class TaskService {
         }
     }
     
-    public Iterable<Task> listByUser(User user){
-        return taskRepository.findAllByUser(user);
+    public Task getTaskById(int id) {
+        return taskRepository.findOne(id);
     }
     
-    public Iterable<Task> listAll(Admin admin){
-        return taskRepository.findAllByAdmin(admin);
+    public Iterable<Task> listByAdmin(Admin admin) {
+        return taskRepository.findByAdmin(admin);
+    }
+    
+    public Iterable<Task> listByUser(User user){
+        return taskRepository.findByUser(user);
+    }
+    
+    public Iterable<Task> listAll() {
+        return taskRepository.findAll();
     }
 }

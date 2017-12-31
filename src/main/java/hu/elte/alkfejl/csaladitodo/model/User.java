@@ -33,20 +33,4 @@ public class User {
     
     @OneToMany(targetEntity = Task.class, mappedBy = "user")
     private List<Task> tasks;
-    
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-    
-    public Role getRole() {
-        return role;
-    }
-    
-    public int getId(){
-        return this.id;
-    }
 }

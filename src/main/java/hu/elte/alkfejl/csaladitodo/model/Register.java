@@ -14,28 +14,15 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Registration {
+public class Register {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     
     @Column(nullable = false)
-    private String name;
+    private String username;
     
     @Column(nullable = false, length = 11)
     private String code;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-    
-    public void setCode(String code){
-        this.code = code;
-    }
-    
 }

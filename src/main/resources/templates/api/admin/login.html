@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Regisztráció</title>
+        <title>Bejelentkezés</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
@@ -9,17 +9,13 @@
         
         <div th:if="${error}">Hiba történt</div>
         
-        <form method="post" action="#" th:action="@{/api/user/register}" th:object="${user}">
+        <form method="post" action="#" th:action="@{/api/admin/login}" th:object="${admin}">
             Username: <br />
             <input type="text" th:field="*{username}" /> <br />
             Password: <br />
             <input type="password" th:field="*{password}" /> <br />
-            Szerep: <br />
-            <select th:field="*{role}">
-                <option value="USER">Szülő</option>
-                <option value="CHILD">Gyerek</option>
-              </select>
-            <button type="submit">Regisztálás</button>
+            <button type="submit">Bejelentkezés</button>
         </form>
     </body>
 </html>
+

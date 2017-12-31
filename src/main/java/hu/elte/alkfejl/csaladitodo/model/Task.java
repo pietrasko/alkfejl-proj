@@ -4,7 +4,7 @@ package hu.elte.alkfejl.csaladitodo.model;
  *
  * @author GenQP
  */
-import java.sql.Timestamp;
+import java.sql.Date;
 import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
@@ -40,37 +40,5 @@ public class Task {
     private String task_description;
     
     @Column(nullable = false)
-    private Timestamp deadline;
-    
-    public void setUser(User user){
-        this.user = user;
-    }
-    
-    public void setCompletion(boolean isComplete){
-        completed = isComplete;
-    }
-    
-    public void setConfirmed(boolean isConfirmed){
-        completion_confirmed = isConfirmed;
-    }
-    
-    public void setTask(String task){
-        task_description = task;
-    }
-    
-    public void setDeadline(Timestamp time){
-        deadline = time;
-    }
-    
-    public boolean isComplete(){
-        return completed;
-    }
-    
-    public boolean isConfirmed(){
-        return completion_confirmed;
-    }
-    
-    public int getId(){
-        return id;
-    }
+    private Date deadline;
 }

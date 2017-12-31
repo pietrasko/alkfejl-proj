@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Taskok</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <h1>Taskok</h1>
+        
+        <table>
+            <th:th>
+                    <td>Felhasználó</td>
+                    <td>Leírás</td>
+                    <td>Határidő</td>
+            </th:th>
+            <th:block th:each="task : ${tasks}">
+                <tr>
+                    <td th:text="${task.user.username}"></td>  
+                    <td>
+                        <a href="/api/user/usertask" th:object="${task}" th:text="${task.task_description}"></a>
+                    </td>
+                    <td th:text="${task.deadline}"></td>
+                </tr>
+            </th:block>
+        </table>
+    </body>
+</html>
+

@@ -1,6 +1,6 @@
 package hu.elte.alkfejl.csaladitodo.repository;
 
-import hu.elte.alkfejl.csaladitodo.model.Registration;
+import hu.elte.alkfejl.csaladitodo.model.Register;
 import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 
@@ -8,6 +8,6 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author GenQP
  */
-public interface RegRepository extends CrudRepository<Registration, Integer>{
-    Optional<Registration> findByName(String name);
+public interface RegRepository extends CrudRepository<Register, Integer>{
+    Optional<Register> findByUsername(String username);
 }

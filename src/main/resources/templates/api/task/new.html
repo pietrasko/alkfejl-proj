@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Új feladat</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <form method="post" th:action="@{/api/task/new}" th:object="${task}">
+            Felhasználó: <br/>
+            <select th:name="username">
+                <option th:each="user : ${users}" th:text="${user.username}"/>
+            </select>
+            <br/>
+            Leírás: <br/>
+            <textarea row="10" column="5" th:field="*{task_description}"></textarea>
+            <br/>
+            Határidő: <br/>
+            <input type="date" th:name="deadline"/>
+            <br/>
+            <input type="submit" value="Küld"/>
+        </form>
+    </body>
+</html>

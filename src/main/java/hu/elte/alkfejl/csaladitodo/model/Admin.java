@@ -3,19 +3,17 @@ package hu.elte.alkfejl.csaladitodo.model;
 import java.util.List;
 import java.util.Random;
 import javax.persistence.*;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import utils.Role;
-
 
 /**
  *
  * @author GenQP
  */
 @Entity
-@Table(name = "ADMIN")
+@Table(name = "ADMINS")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -38,26 +36,6 @@ public class Admin {
     @OneToMany(targetEntity = Task.class, mappedBy = "admin")
     private List<Task> tasks;
     
-    public int getId() {
-        return id;
-    }
-    
-    public String getUsername(){
-        return username;
-    }
-    
-    public Role getRole(){
-        return role;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-    
-    public void setRole(Role role){
-        this.role = role;
-    }
-    
     public String genRegCode() {
         
         String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
@@ -71,5 +49,4 @@ public class Admin {
         return saltStr;
 
     }
-    
 }
