@@ -6,93 +6,67 @@ import hu.elte.alkfejl.csaladitodo.service.UserService;
 import hu.elte.alkfejl.csaladitodo.model.User;
 import hu.elte.alkfejl.csaladitodo.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.context.annotation.Role;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequestMapping("/api/user")
 public class UserController {
     
     @Autowired
     private UserService userService;
-    
+
     @Autowired
     private TaskService taskService;
     
-//    @GetMapping("")
-//    public ResponseEntity<User> user() {
-//        if (userService.isLoggedIn()) {
-//            return ResponseEntity.ok(
-//                    userService.getLoggedInUser());
-//        }
-//        return ResponseEntity.badRequest().build();
-//    }
-    
-    @GetMapping("/register")
-    public String register(Model model) {
-        model.addAttribute("user", new User());
-        return "api/user/regist";
-    }
-    
+    @Role({})
     @PostMapping("/register")
-    //public User register(@RequestBody User user) {
-    public String register(User user) {
-        //return userService.register(user);
-        userService.register(user);
-        return "redirect:/api/user/login";
+    public User register(@RequestBody User user) {
+        return userService.register(user);
     }
     
+    @Role({USER})
     @GetMapping("/tasks")
-    public String showTasks(Model model) {
-        if(userService.isLoggedIn()) {
-            model.addAttribute("tasks", taskService.listByUser(userService.getLoggedInUser()));
-            model.addAttribute("user", userService.getLoggedInUser());
-            return "api/user/tasks";  
-        } else {
-            return "redirect:/api/user/login";
-        }
-            
+    public ResponseEntity<Iterable<Task>> showTasks() {
+        return ResponseEntity.ok(taskService.listByUser(userService.getLoggedInUser()));
     }
     
+    @Role({USER})
     @GetMapping("/usertask")
-    public String showUserTask(Task task, Model model) {
-        model.addAttribute("task", task);
-        return "api/user/usertask";
+    public ResponseEntity<Task> showUserTask(@RequestBody Task task) {
+        return ResponseEntity.ok(task);
     }
     
-//    @PostMapping("/login")
-//    public ResponseEntity<User> login(@RequestBody User user) {
-//        try {
-//            return ResponseEntity.ok(userService.login(user));
-//        }
-//        catch (UserNotValidException e) {
-//            return ResponseEntity.badRequest().build();
-//        }
-//    }
-    
-    @GetMapping("/login")
-    public String showLogin(Model model) {
-        model.addAttribute("user",new User());
-        return "api/user/login";
-    }
-    
+    @Role({USER})
     @PostMapping("/login")
-    public String login(User user) throws UserNotValidException {
-        if(null != userService.login(user)) {
-            return "redirect:/api/user/tasks";
-        } else {
-            return "redirect:/api/user/login";
+    public ResponseEntity<User> login(@RequestBody User user) {  
+        try {
+            return ResponseEntity.ok(userService.login(user));
+        } catch(UserNotValidException e) {
+            return ResponseEntity.badRequest().build();
         }
     }
     
     @PostMapping("/logout")
-    //public ResponseEntity<User> logout(@RequestBody User user) {
-    public String logout(User user) {
+    public ResponseEntity<User> logout(@RequestBody User user) {
         userService.logout();
-        return "redirect:/api/user/login";
-       //return ResponseEntity.ok().build();
+       return ResponseEntity.status(204).build();
     }
+    
+    //    @GetMapping("/login")
+//    public String showLogin(Model model) {
+//        model.addAttribute("user",new User());
+//        return "api/user/login";
+//    }
+    
+    //    @GetMapping("/register")
+//    public String register(Model model) {
+//        model.addAttribute("user", new User());
+//        return "api/user/regist";
+//    }
 }

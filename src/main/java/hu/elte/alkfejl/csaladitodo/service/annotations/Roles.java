@@ -4,7 +4,7 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import utils.Role;
+import hu.elte.alkfel.csaladitodo.annotation.Role;
 /**
  *
  * @author GenQP

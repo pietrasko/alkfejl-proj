@@ -6,7 +6,7 @@ import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import utils.Role;
+import hu.elte.alkfel.csaladitodo.annotation.Role;
 
 /**
  *
@@ -48,5 +48,9 @@ public class Admin {
         String saltStr = salt.toString();
         return saltStr;
 
+    }
+    
+    public enum Role {
+        ADMIN
     }
 }

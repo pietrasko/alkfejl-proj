@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
-import utils.Role;
+import hu.elte.alkfel.csaladitodo.annotation.Role;
 
 @Entity
 @Table(name = "USERS")
@@ -33,4 +33,8 @@ public class User {
     
     @OneToMany(targetEntity = Task.class, mappedBy = "user")
     private List<Task> tasks;
+    
+    public enum Role {
+        GUEST, USER
+    }
 }

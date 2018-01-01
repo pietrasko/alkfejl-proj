@@ -19,7 +19,11 @@ public class TaskService {
     @Autowired
     private TaskRepository taskRepository;
     
-    public Task addTask(Task task){
+    @Autowired
+    private RegService regService;
+    
+    public Task addTask(Task task, Admin admin){
+        regService.addNewRegistration(admin, task.getUser().getUsername());
         return taskRepository.save(task);
     }
     
@@ -27,12 +31,9 @@ public class TaskService {
         taskRepository.delete(id);
     }
     
-    public void updateTask(Task task){
-        Task delete = taskRepository.findOne(task.getId());
-        if(delete != null){
-            taskRepository.delete(delete);
-            taskRepository.save(task);
-        }
+    public Task updateTask(int id, Task task){
+        Task currentTask = taskRepository.findOne(id);
+        return taskRepository.save(currentTask);
     }
     
     public Task getTaskById(int id) {
