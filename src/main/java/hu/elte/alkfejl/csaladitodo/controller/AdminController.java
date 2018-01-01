@@ -3,7 +3,7 @@ package hu.elte.alkfejl.csaladitodo.controller;
 import hu.elte.alkfejl.csaladitodo.exception.AdminNotValidException;
 import hu.elte.alkfejl.csaladitodo.model.Admin;
 import hu.elte.alkfejl.csaladitodo.model.Task;
-import hu.elte.alkfejl.csaladitodo.model.Admin.Role.ADMIN;
+//import hu.elte.alkfejl.csaladitodo.model.Admin.Role.ADMIN;
 import hu.elte.alkfejl.csaladitodo.service.AdminService;
 import hu.elte.alkfejl.csaladitodo.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,13 +36,13 @@ public class AdminController {
         }
     }
     
-    @Role({ADMIN})
+    //@Role({ADMIN})
     @GetMapping("/tasks")
     public ResponseEntity<Iterable<Task>> showAdminTasks() {
         return ResponseEntity.ok(taskService.listByAdmin(adminService.getLoggedInAdmin()));
     }
     
-    @Role({ADMIN})
+    //@Role({ADMIN})
     @GetMapping("/admintask")
     public ResponseEntity<Task> showAdminTask(@RequestBody Task task) {
         return ResponseEntity.ok(task);

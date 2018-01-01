@@ -52,7 +52,7 @@ public class TaskController {
 //        }
 //    }
     
-    @Role(ADMIN)
+    //@Role(ADMIN)
     @PostMapping("/new")
     public ResponseEntity<Task> newTask(@RequestBody Task task) throws ParseException {
         return ResponseEntity.ok(taskService.addTask(task, adminService.getLoggedInAdmin()));
@@ -68,14 +68,14 @@ public class TaskController {
 //        }
 //    }
     
-    @Role({ADMIN})
+    //@Role({ADMIN})
     @PutMapping("/edit/{id}")
     public ResponseEntity<Task> editTask(@PathVariable int id, @RequestBody Task task) {
         Task updateTask = taskService.updateTask(id, task);
         return ResponseEntity.ok(updateTask);
     }
     
-    @Role(ADMIN)
+    //@Role(ADMIN)
     @DeleteMapping("/delete/{id}")
     public ResponseEntity deleteTask(@PathVariable int id) {
         taskService.deleteTask(id);

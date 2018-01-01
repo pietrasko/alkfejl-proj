@@ -23,7 +23,7 @@ public class TaskService {
     private RegService regService;
     
     public Task addTask(Task task, Admin admin){
-        regService.addNewRegistration(admin, task.getUser().getUsername());
+        regService.addNewRegistration(admin, admin.getUsername());
         return taskRepository.save(task);
     }
     

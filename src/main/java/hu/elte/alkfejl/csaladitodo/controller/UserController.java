@@ -4,7 +4,7 @@ import hu.elte.alkfejl.csaladitodo.exception.UserNotValidException;
 import hu.elte.alkfejl.csaladitodo.model.Task;
 import hu.elte.alkfejl.csaladitodo.service.UserService;
 import hu.elte.alkfejl.csaladitodo.model.User;
-import hu.elte.alkfejl.csaladitodo.mode
+//import hu.elte.alkfejl.csaladitodo.model.User.Role.USER;
 import hu.elte.alkfejl.csaladitodo.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -29,13 +29,13 @@ public class UserController {
         return userService.register(user);
     }
     
-    @Role({USER})
+    //@Role({USER})
     @GetMapping("/tasks")
     public ResponseEntity<Iterable<Task>> showTasks() {
         return ResponseEntity.ok(taskService.listByUser(userService.getLoggedInUser()));
     }
     
-    @Role({USER})
+    //@Role({USER})
     @GetMapping("/usertask")
     public ResponseEntity<Task> showUserTask(@RequestBody Task task) {
         return ResponseEntity.ok(task);

@@ -6,6 +6,7 @@ package hu.elte.alkfejl.csaladitodo.model;
  */
 import java.sql.Date;
 import javax.persistence.*;
+import javax.swing.text.StyledEditorKit;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,17 +19,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Task {
     
-    @JoinColumn
-    @ManyToOne(targetEntity = Admin.class)
-    private Admin admin;
-    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     
-    @JoinColumn
-    @ManyToOne(targetEntity = User.class)
-    private User user;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "ADMINS", joinColumns = @JoinColumn(name = "task_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "admin_id", referencedColumnName = "id"))
+    private Iterable<Admin> admins;
+    
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "USERS", joinColumns = @JoinColumn(name = "task_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"))
+    private Iterable<User> users;
     
     @Column(nullable = false)
     private boolean completed;
