@@ -4,9 +4,9 @@ import hu.elte.alkfejl.csaladitodo.exception.UserNotValidException;
 import hu.elte.alkfejl.csaladitodo.model.Task;
 import hu.elte.alkfejl.csaladitodo.service.UserService;
 import hu.elte.alkfejl.csaladitodo.model.User;
+import hu.elte.alkfejl.csaladitodo.mode
 import hu.elte.alkfejl.csaladitodo.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Role;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +24,6 @@ public class UserController {
     @Autowired
     private TaskService taskService;
     
-    @Role({})
     @PostMapping("/register")
     public User register(@RequestBody User user) {
         return userService.register(user);
@@ -42,7 +41,6 @@ public class UserController {
         return ResponseEntity.ok(task);
     }
     
-    @Role({USER})
     @PostMapping("/login")
     public ResponseEntity<User> login(@RequestBody User user) {  
         try {
@@ -51,7 +49,7 @@ public class UserController {
             return ResponseEntity.badRequest().build();
         }
     }
-    
+
     @PostMapping("/logout")
     public ResponseEntity<User> logout(@RequestBody User user) {
         userService.logout();

@@ -3,10 +3,10 @@ package hu.elte.alkfejl.csaladitodo.controller;
 import hu.elte.alkfejl.csaladitodo.exception.AdminNotValidException;
 import hu.elte.alkfejl.csaladitodo.model.Admin;
 import hu.elte.alkfejl.csaladitodo.model.Task;
+import hu.elte.alkfejl.csaladitodo.model.Admin.Role.ADMIN;
 import hu.elte.alkfejl.csaladitodo.service.AdminService;
 import hu.elte.alkfejl.csaladitodo.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Role;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +27,6 @@ public class AdminController {
     @Autowired
     private TaskService taskService;
     
-    @Role({ADMIN})
     @PostMapping("/login")
     public ResponseEntity<Admin> login(@RequestBody Admin admin) throws AdminNotValidException {
         try {

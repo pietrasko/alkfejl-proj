@@ -6,7 +6,7 @@ import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import hu.elte.alkfel.csaladitodo.annotation.Role;
+import hu.elte.alkfejl.csaladitodo.annotation.Role;
 
 /**
  *

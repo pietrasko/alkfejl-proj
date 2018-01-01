@@ -7,7 +7,6 @@ import hu.elte.alkfejl.csaladitodo.service.TaskService;
 import hu.elte.alkfejl.csaladitodo.service.UserService;
 import java.text.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Role;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -53,7 +52,7 @@ public class TaskController {
 //        }
 //    }
     
-    @Role({ADMIN})
+    @Role(ADMIN)
     @PostMapping("/new")
     public ResponseEntity<Task> newTask(@RequestBody Task task) throws ParseException {
         return ResponseEntity.ok(taskService.addTask(task, adminService.getLoggedInAdmin()));
@@ -69,7 +68,7 @@ public class TaskController {
 //        }
 //    }
     
-    @Role(ADMIN)
+    @Role({ADMIN})
     @PutMapping("/edit/{id}")
     public ResponseEntity<Task> editTask(@PathVariable int id, @RequestBody Task task) {
         Task updateTask = taskService.updateTask(id, task);
