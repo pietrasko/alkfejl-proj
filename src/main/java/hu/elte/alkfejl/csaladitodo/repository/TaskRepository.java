@@ -3,7 +3,6 @@ package hu.elte.alkfejl.csaladitodo.repository;
 import hu.elte.alkfejl.csaladitodo.model.Admin;
 import hu.elte.alkfejl.csaladitodo.model.Task;
 import hu.elte.alkfejl.csaladitodo.model.User;
-import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 
 /**

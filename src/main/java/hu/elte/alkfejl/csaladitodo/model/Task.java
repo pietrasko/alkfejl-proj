@@ -5,6 +5,7 @@ package hu.elte.alkfejl.csaladitodo.model;
  * @author GenQP
  */
 import java.sql.Date;
+import java.util.List;
 import javax.persistence.*;
 import javax.swing.text.StyledEditorKit;
 
@@ -23,13 +24,13 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "ADMINS", joinColumns = @JoinColumn(name = "task_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "admin_id", referencedColumnName = "id"))
-    private Iterable<Admin> admins;
+    @JoinColumn
+    @ManyToOne(targetEntity = Admin.class)
+    private Admin admin;
     
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "USERS", joinColumns = @JoinColumn(name = "task_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"))
-    private Iterable<User> users;
+    @ManyToMany(targetEntity = User.class)
+    @JoinTable(name = "USER_TASK", joinColumns = @JoinColumn(name = "TASK_ID", referencedColumnName = "ID"), inverseJoinColumns = @JoinColumn(name = "USER_ID", referencedColumnName = "ID"))
+    private List<User> users;
     
     @Column(nullable = false)
     private boolean completed;

@@ -30,7 +30,7 @@ public class User {
     @Column(nullable = false)
     private Role role;
     
-    @OneToMany(targetEntity = Task.class, mappedBy = "user")
+    @ManyToMany(mappedBy = "users")
     private List<Task> tasks;
     
     public enum Role {
