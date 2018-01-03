@@ -28,7 +28,9 @@ export class RegComponent implements OnInit {
       return;
     }
     try {
-      this.message = "Try to login!";
+      this.user.role = 'USER';
+      this.user.name = "Ferkoo";
+      console.log(JSON.stringify(this.user));
       await this.authService.register(this.user);
       this.isInvalid = false;
       this.router.navigate( ['/login']);

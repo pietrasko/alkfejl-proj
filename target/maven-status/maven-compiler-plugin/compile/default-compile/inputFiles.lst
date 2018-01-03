@@ -1,0 +1,16 @@
+C:\Users\GenQP\Documents\Code\alkfejl\alkfejl-proj\src\main\java\hu\elte\alkfejl\csaladitodo\CsaladiTodoApplication.java
+C:\Users\GenQP\Documents\Code\alkfejl\alkfejl-proj\src\main\java\hu\elte\alkfejl\csaladitodo\exception\AdminNotValidException.java
+C:\Users\GenQP\Documents\Code\alkfejl\alkfejl-proj\src\main\java\hu\elte\alkfejl\csaladitodo\model\User.java
+C:\Users\GenQP\Documents\Code\alkfejl\alkfejl-proj\src\main\java\hu\elte\alkfejl\csaladitodo\config\AuthInterceptor.java
+C:\Users\GenQP\Documents\Code\alkfejl\alkfejl-proj\src\main\java\hu\elte\alkfejl\csaladitodo\service\RegService.java
+C:\Users\GenQP\Documents\Code\alkfejl\alkfejl-proj\src\main\java\hu\elte\alkfejl\csaladitodo\controller\UserController.java
+C:\Users\GenQP\Documents\Code\alkfejl\alkfejl-proj\src\main\java\hu\elte\alkfejl\csaladitodo\service\TaskService.java
+C:\Users\GenQP\Documents\Code\alkfejl\alkfejl-proj\src\main\java\hu\elte\alkfejl\csaladitodo\controller\TaskController.java
+C:\Users\GenQP\Documents\Code\alkfejl\alkfejl-proj\src\main\java\hu\elte\alkfejl\csaladitodo\annotation\Role.java
+C:\Users\GenQP\Documents\Code\alkfejl\alkfejl-proj\src\main\java\hu\elte\alkfejl\csaladitodo\model\Register.java
+C:\Users\GenQP\Documents\Code\alkfejl\alkfejl-proj\src\main\java\hu\elte\alkfejl\csaladitodo\repository\UserRepository.java
+C:\Users\GenQP\Documents\Code\alkfejl\alkfejl-proj\src\main\java\hu\elte\alkfejl\csaladitodo\exception\UserNotValidException.java
+C:\Users\GenQP\Documents\Code\alkfejl\alkfejl-proj\src\main\java\hu\elte\alkfejl\csaladitodo\repository\RegRepository.java
+C:\Users\GenQP\Documents\Code\alkfejl\alkfejl-proj\src\main\java\hu\elte\alkfejl\csaladitodo\repository\TaskRepository.java
+C:\Users\GenQP\Documents\Code\alkfejl\alkfejl-proj\src\main\java\hu\elte\alkfejl\csaladitodo\model\Task.java
+C:\Users\GenQP\Documents\Code\alkfejl\alkfejl-proj\src\main\java\hu\elte\alkfejl\csaladitodo\service\UserService.java

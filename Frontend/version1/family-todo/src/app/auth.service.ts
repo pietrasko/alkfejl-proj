@@ -13,14 +13,14 @@ export class AuthService {
 
   user: User;
   isLoggedIn: boolean = false;
-  redirectUrl: string;
+  private server: string = "http://localhost:8080/";
 
   constructor(
     private http: HttpClient
   ) { }
 
   login(user: User): Promise<User> {
-    return this.http.post<User>('api/user/login', user, httpOptions).pipe(
+    return this.http.post<User>(this.server + 'api/user/login', user, httpOptions).pipe(
       tap((res: User) => {
         console.log('service login', res);
         this.isLoggedIn = true;
@@ -31,7 +31,7 @@ export class AuthService {
 
   logout() {
     
-    return this.http.post('api/user/logout', {}, httpOptions).pipe(
+    return this.http.post(this.server +'api/user/logout', {}, httpOptions).pipe(
       tap(res => {
         console.log('service logout', res);
         this.isLoggedIn = false;
@@ -41,7 +41,8 @@ export class AuthService {
   }
 
   register(user: User){
-    return this.http.post<User>('api/user/register', user, httpOptions).pipe(
+    
+    return this.http.post<User>(this.server +'api/user/register', user, httpOptions).pipe(
       tap((res: User) => {
         console.log('service login', res);
 

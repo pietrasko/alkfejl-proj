@@ -1,0 +1,17 @@
+hu\elte\alkfejl\csaladitodo\controller\UserController.class
+hu\elte\alkfejl\csaladitodo\model\Task.class
+hu\elte\alkfejl\csaladitodo\annotation\Role.class
+hu\elte\alkfejl\csaladitodo\repository\TaskRepository.class
+hu\elte\alkfejl\csaladitodo\model\User.class
+hu\elte\alkfejl\csaladitodo\service\RegService.class
+hu\elte\alkfejl\csaladitodo\config\AuthInterceptor.class
+hu\elte\alkfejl\csaladitodo\repository\RegRepository.class
+hu\elte\alkfejl\csaladitodo\service\UserService.class
+hu\elte\alkfejl\csaladitodo\CsaladiTodoApplication.class
+hu\elte\alkfejl\csaladitodo\exception\AdminNotValidException.class
+hu\elte\alkfejl\csaladitodo\repository\UserRepository.class
+hu\elte\alkfejl\csaladitodo\model\User$Role.class
+hu\elte\alkfejl\csaladitodo\exception\UserNotValidException.class
+hu\elte\alkfejl\csaladitodo\model\Register.class
+hu\elte\alkfejl\csaladitodo\service\TaskService.class
+hu\elte\alkfejl\csaladitodo\controller\TaskController.class
