@@ -40,7 +40,7 @@ public class TaskController {
         return ResponseEntity.ok(taskService.listAll());
     }
     
-    @Role(ADMIN)
+    @Role({ADMIN})
     @PostMapping("/new")
     public ResponseEntity<Task> newTask(@RequestBody Task task) throws ParseException {
         return ResponseEntity.ok(taskService.addTask(task, userService.getLoggedInUser()));
@@ -53,7 +53,7 @@ public class TaskController {
         return ResponseEntity.ok(updateTask);
     }
     
-    @Role(ADMIN)
+    @Role({ADMIN})
     @DeleteMapping("/delete/{id}")
     public ResponseEntity deleteTask(@PathVariable int id) {
         taskService.deleteTask(id);

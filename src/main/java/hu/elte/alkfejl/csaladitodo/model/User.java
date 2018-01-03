@@ -1,5 +1,6 @@
 package hu.elte.alkfejl.csaladitodo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.List;
 import java.util.Random;
 import lombok.AllArgsConstructor;
@@ -28,6 +29,7 @@ public class User {
     private String password;
     
     @OneToMany(targetEntity = Task.class, mappedBy = "user")
+    @JsonIgnore
     private List<Task> tasks;
     
     @Column(nullable = false)

@@ -25,7 +25,6 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
         List<User.Role> routeRoles = getRoles((HandlerMethod) handler);
         User user = userService.getLoggedInUser();
 
-        // when there are no restrictions, we let the user through
         if (routeRoles.isEmpty() || routeRoles.contains(User.Role.GUEST)) {
             return true;
         }

@@ -4,6 +4,7 @@ package hu.elte.alkfejl.csaladitodo.model;
  *
  * @author GenQP
  */
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.sql.Date;
 import javax.persistence.*;
 import lombok.AllArgsConstructor;
@@ -21,7 +22,8 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     
-    @ManyToOne(targetEntity = User.class)
+    @ManyToOne(targetEntity = User.class, optional = false)
+    @JsonIgnoreProperties("tasks")
     private User user;
     
     @Column(nullable = false)
