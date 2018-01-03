@@ -5,10 +5,7 @@ package hu.elte.alkfejl.csaladitodo.model;
  * @author GenQP
  */
 import java.sql.Date;
-import java.util.List;
 import javax.persistence.*;
-import javax.swing.text.StyledEditorKit;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,9 +25,8 @@ public class Task {
     @ManyToOne(targetEntity = Admin.class)
     private Admin admin;
     
-    @ManyToMany(targetEntity = User.class)
-    @JoinTable(name = "USER_TASK", joinColumns = @JoinColumn(name = "TASK_ID", referencedColumnName = "ID"), inverseJoinColumns = @JoinColumn(name = "USER_ID", referencedColumnName = "ID"))
-    private List<User> users;
+    @ManyToOne(targetEntity = User.class)
+    private User user;
     
     @Column(nullable = false)
     private boolean completed;

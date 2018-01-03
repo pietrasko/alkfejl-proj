@@ -30,10 +30,10 @@ public class User {
     @Column(nullable = false)
     private Role role;
     
-    @ManyToMany(mappedBy = "users")
+    @OneToMany(targetEntity = Task.class, mappedBy = "user")
     private List<Task> tasks;
     
     public enum Role {
-        GUEST, USER
+        GUEST, USER, ADMIN
     }
 }
