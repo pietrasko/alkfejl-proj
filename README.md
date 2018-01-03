@@ -41,9 +41,12 @@ A projekt célja egy családi feladat beosztás segítésére használható webe
 * Adminisztrátor: Szülő, több is lehet
 * Felhasználó: Szülő vagy gyerek, több is lehet
 
+![db](/db.PNG)
 ### Adatmodell
+![adatmod](/adatfolyam.png)
 
 ### Végpontok
+
 
 # Megvalósítás
 
