@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+    <button mat-button routerLink="/">
+      <mat-icon>home</mat-icon>
+      Family - TODO
+    </button>
+  
+    <span class="fill-remaining-space" fxHide="false" fxHide.gt-sm></span>
+    <div fxLayout="row" fxShow="true" fxShow.gt-sm class="buttons">
+      
+      <span class="fill-remaining-space"></span>
+      <div *ngIf="!authService.isLoggedIn">
+        <button mat-button routerLink="/login">Login</button>
+        <button mat-button routerLink="/register">Register</button>
+      </div>
+      <div *ngIf="authService.isLoggedIn">
+        <button mat-button routerLink="/task">Tasks</button>
+        <button mat-button routerLink="/task/new">Add Task</button>
+        <button mat-button (click)="logout()">Logout</button>
+      </div>
+    </div>
+
+</mat-toolbar>
+  
