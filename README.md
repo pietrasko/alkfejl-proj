@@ -80,6 +80,8 @@ model: Az MVC Modell-ért felelős osztályok helye
 repository: a verzió kontrolt elősegítő osztályok helye 
 service: komponensek
 
+![hasznalat](/usecase.PNG)
+
 ## Felhasználói dokumentáció
 
 Telepítés: ->Fejlesztői környezet felállítása
