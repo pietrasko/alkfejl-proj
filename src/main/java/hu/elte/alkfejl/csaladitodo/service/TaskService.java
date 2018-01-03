@@ -1,6 +1,5 @@
 package hu.elte.alkfejl.csaladitodo.service;
 
-import hu.elte.alkfejl.csaladitodo.model.Admin;
 import hu.elte.alkfejl.csaladitodo.model.Task;
 import hu.elte.alkfejl.csaladitodo.model.User;
 import hu.elte.alkfejl.csaladitodo.repository.TaskRepository;
@@ -22,7 +21,7 @@ public class TaskService {
     @Autowired
     private RegService regService;
     
-    public Task addTask(Task task, Admin admin){
+    public Task addTask(Task task, User admin){
         regService.addNewRegistration(admin, admin.getUsername());
         return taskRepository.save(task);
     }
@@ -38,10 +37,6 @@ public class TaskService {
     
     public Task getTaskById(int id) {
         return taskRepository.findOne(id);
-    }
-    
-    public Iterable<Task> listByAdmin(Admin admin) {
-        return taskRepository.findByAdmin(admin);
     }
     
     public Iterable<Task> listByUser(User user){

@@ -21,10 +21,6 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     
-    @JoinColumn
-    @ManyToOne(targetEntity = Admin.class)
-    private Admin admin;
-    
     @ManyToOne(targetEntity = User.class)
     private User user;
     

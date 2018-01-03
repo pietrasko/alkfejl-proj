@@ -5,7 +5,6 @@ package hu.elte.alkfejl.csaladitodo.service;
  * @author GenQP
  */
 
-import hu.elte.alkfejl.csaladitodo.model.Admin;
 import hu.elte.alkfejl.csaladitodo.model.Register;
 import hu.elte.alkfejl.csaladitodo.model.User;
 import hu.elte.alkfejl.csaladitodo.repository.RegRepository;
@@ -16,13 +15,11 @@ import org.springframework.web.context.annotation.SessionScope;
 
 @Service
 @SessionScope
-public class RegService {
-    private Register reg_table;
-    
+public class RegService {  
     @Autowired
     private RegRepository regRepository;
     
-    public Register addNewRegistration(Admin admin, String username){
+    public Register addNewRegistration(User admin, String username){
         String code = admin.genRegCode();
         Register reg = new Register();
         reg.setUsername(username);
