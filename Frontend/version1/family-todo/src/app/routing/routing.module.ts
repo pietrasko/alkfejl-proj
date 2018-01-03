@@ -7,6 +7,8 @@ import { LoginComponent } from '../login/login.component';
 import { Component } from '@angular/core/src/metadata/directives';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { RegComponent } from '../reg/reg.component';
+import { TaskListComponent } from '../task-list/task-list.component';
+import { TaskManComponent } from '../task-man/task-man.component';
 
 const routes: Routes = [
   {
@@ -24,6 +26,14 @@ const routes: Routes = [
   {
     path: 'logout',
     component: WelcomeComponent
+  },
+  {
+    path: 'task',
+    component: TaskListComponent
+  },
+  {
+    path: 'task/man',
+    component: TaskManComponent
   }
 ];
 

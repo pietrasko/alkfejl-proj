@@ -1,6 +1,8 @@
+import { User } from "./user";
+
 export class Task{
-    admin_id:   number;
-    user_id:    number;
+    id:         number;
+    user:       User;
     completed:  boolean;
     completion_confirmed: boolean;
     task_description: string;

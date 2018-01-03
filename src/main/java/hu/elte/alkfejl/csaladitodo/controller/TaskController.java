@@ -35,7 +35,7 @@ public class TaskController {
     @Autowired
     private UserService userService;
         
-    @GetMapping
+    @GetMapping("/tasks")
     public ResponseEntity<Iterable<Task>> list() {
         return ResponseEntity.ok(taskService.listAll());
     }

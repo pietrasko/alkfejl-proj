@@ -22,6 +22,9 @@ import { fakeBackendProvider } from './fakebackend';
 import { MockBackend } from '@angular/http/testing';
 import { BaseRequestOptions } from '@angular/http';
 import { RegComponent } from './reg/reg.component';
+import { TaskService } from './task.service';
+import { TaskListComponent } from './task-list/task-list.component';
+import { TaskManComponent } from './task-man/task-man.component';
 
 
 @NgModule({
@@ -33,7 +36,9 @@ import { RegComponent } from './reg/reg.component';
     TasksComponent,
     AdminComponent,
     UserComponent,
-    RegComponent
+    RegComponent,
+    TaskListComponent,
+    TaskManComponent
   ],
   imports: [
     RoutingModule,
@@ -53,6 +58,7 @@ import { RegComponent } from './reg/reg.component';
   ],
   providers: [
     AuthService,
+    TaskService,
     fakeBackendProvider,
     MockBackend,
     BaseRequestOptions

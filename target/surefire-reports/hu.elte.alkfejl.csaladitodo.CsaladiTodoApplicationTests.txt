@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: hu.elte.alkfejl.csaladitodo.CsaladiTodoApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.266 sec - in hu.elte.alkfejl.csaladitodo.CsaladiTodoApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.34 sec - in hu.elte.alkfejl.csaladitodo.CsaladiTodoApplicationTests
