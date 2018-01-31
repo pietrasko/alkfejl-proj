@@ -28,7 +28,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
         if (routeRoles.isEmpty() || routeRoles.contains(User.Role.GUEST)) {
             return true;
         }
-        // check role
+
         if (userService.isLoggedIn() && routeRoles.contains(user.getRole())) {
             return true;
         }

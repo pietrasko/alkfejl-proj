@@ -1,10 +1,12 @@
 package hu.elte.alkfejl.csaladitodo.controller;
 
+import hu.elte.alkfejl.csaladitodo.annotation.Role;
 import hu.elte.alkfejl.csaladitodo.exception.UserNotValidException;
 import hu.elte.alkfejl.csaladitodo.model.Task;
 import hu.elte.alkfejl.csaladitodo.service.UserService;
-import hu.elte.alkfejl.csaladitodo.model.User;
-//import hu.elte.alkfejl.csaladitodo.model.User.Role.USER;
+import hu.elte.alkfejl.csaladitodo.model.User;;
+import static hu.elte.alkfejl.csaladitodo.model.User.Role.USER;
+import static hu.elte.alkfejl.csaladitodo.model.User.Role.ADMIN;
 import hu.elte.alkfejl.csaladitodo.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -29,13 +31,13 @@ public class UserController {
         return userService.register(user);
     }
     
-    //@Role({USER})
+    @Role({USER, ADMIN})
     @GetMapping("/tasks")
     public ResponseEntity<Iterable<Task>> showTasks() {
         return ResponseEntity.ok(taskService.listByUser(userService.getLoggedInUser()));
     }
     
-    //@Role({USER})
+    @Role({USER, ADMIN})
     @GetMapping("/usertask")
     public ResponseEntity<Task> showUserTask(@RequestBody Task task) {
         return ResponseEntity.ok(task);
@@ -55,16 +57,4 @@ public class UserController {
         userService.logout();
        return ResponseEntity.status(204).build();
     }
-    
-    //    @GetMapping("/login")
-//    public String showLogin(Model model) {
-//        model.addAttribute("user",new User());
-//        return "api/user/login";
-//    }
-    
-    //    @GetMapping("/register")
-//    public String register(Model model) {
-//        model.addAttribute("user", new User());
-//        return "api/user/regist";
-//    }
 }
