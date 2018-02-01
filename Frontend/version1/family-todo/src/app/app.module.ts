@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule,
   MatFormFieldModule, MatInputModule,
-  MatButtonToggleModule, MatListModule
+  MatButtonToggleModule, MatListModule, MatSelectModule, MatTableModule, MatCheckboxModule
 } from "@angular/material";
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgModule } from '@angular/core';
@@ -25,6 +25,8 @@ import { RegComponent } from './reg/reg.component';
 import { TaskService } from './task.service';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskManComponent } from './task-man/task-man.component';
+import { MatTableDataSource } from '@angular/material';
+
 
 
 @NgModule({
@@ -53,6 +55,9 @@ import { TaskManComponent } from './task-man/task-man.component';
     MatListModule,
     FlexLayoutModule,
     MatButtonToggleModule,
+    MatSelectModule,
+    MatTableModule,
+    MatCheckboxModule,
     FormsModule,
     HttpClientModule
   ],

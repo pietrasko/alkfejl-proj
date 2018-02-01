@@ -1,3 +1,46 @@
 <div class="container">
-  blaa
+  <h2 class="mat-h2">Tasks</h2>
+  <mat-table #table [dataSource]="tasks">
+
+    <ng-container matColumnDef="completed">
+      <mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()"
+                      (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)">
+        </mat-checkbox>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="user">
+      <mat-header-cell *matHeaderCellDef> Child </mat-header-cell>
+      <mat-cell *matCellDef="let task"> {{task.user}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="confirm">
+      <mat-header-cell *matHeaderCellDef> Confirm completion </mat-header-cell>
+      <mat-cell *matCellDef="let task"> {{task.completion_confirmed}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef> Taks description </mat-header-cell>
+      <mat-cell *matCellDef="let task"> {{task.task_description}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="deadline">
+      <mat-header-cell *matHeaderCellDef> Deadline </mat-header-cell>
+      <mat-cell *matCellDef="let task"> {{task.deadline}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"
+             (click)="selection.toggle(row)">
+    </mat-row>
+  </mat-table>
+  <button type="submit" mat-raised-button color="primary">Confirm</button>
 </div>
