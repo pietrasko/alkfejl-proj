@@ -45,7 +45,18 @@ A projekt célja egy családi feladat beosztás segítésére használható webe
 ### Adatmodell
 ![adatmod](/adatfolyam.png)
 
-### Végpontok
+### Végpontok(tervezett)
+
+|elérés                 |típus      |funkció
+|---                    |---        |---
+| /api/user/register    | POST      | regisztráció
+| /api/user/login       | POST      | bejelentkezés
+| /api/user/logout      | POST      | kijelentkezés
+| /api/user/tasks       | GET       | user feladatok listája
+| /api/user/usertask    | GET       | 1 feladat kérése
+| /api/task/tasks       | GET       | összes feladat listázása
+| /api/task/edit/id     | PUT       | adott ID-s feladat szerkesztése
+| /api/task/delete/id   | DELETE    | adott ID-s feladat törlése
 
 
 # Megvalósítás
